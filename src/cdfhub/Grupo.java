@@ -9,10 +9,15 @@ public class Grupo {
 
     public Grupo(String nome, List<Perfil> participantes) {
         this.nome = nome;
-        this.participantes = new ArrayList<>();
+        this.participantes = new ArrayList<>(participantes);
     }
     
     public void adicionarPerfil (Perfil p ) {
-        participantes.add(p);
+        if (!participantes.contains(p)) {
+            participantes.add(p);
+        }
+    }
+    public List<Perfil> getParticipantes() {
+        return participantes;
     }
 }

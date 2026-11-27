@@ -22,7 +22,8 @@ public class Video extends Postagem {
 
     @Override
     public double calcularAlcance() {
-        return 0;
+        return getCurtidas() * 4 + getCompartilhamentos() * 8
+                + getComentarios().size() * 3;
     }
 
     public void aumentarVelocidade() {
@@ -35,20 +36,5 @@ public class Video extends Postagem {
         if (velocidade > 0.25) {
             velocidade -= 0.25;
         }
-    }
-
-    @Override
-    public void compartilhar() {
-
-    }
-
-    @Override
-    public void curtir() {
-
-    }
-
-    @Override
-    public void denunciar() {
-
     }
 }
