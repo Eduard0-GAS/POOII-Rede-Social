@@ -21,8 +21,12 @@ public class RedeSocial {
         return perfis;
     }
     
-    public void cadastrarPefil (Perfil p) {
-        perfis.put(p.getApelido(), p);
+    public void cadastrarPefil (Perfil p) throws ApelidoJaExisteException {
+        if (p.getApelido().equals(this.nome)) {
+            throw new ApelidoJaExisteException("esse apelido ja existe!");
+        }
+        perfis.put(p.getApelido(), p)
+        ;
     }
     
     public Perfil buscarPerfil (String apelido) {
