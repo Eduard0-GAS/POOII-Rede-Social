@@ -9,6 +9,9 @@ public abstract class Postagem implements Moderavel {
     private Perfil autor;
     private LocalDate dataPostagem;
     private List<Comentario> comentarios;
+    private int curtidas;
+    private int compartilhamentos;
+    private int denuncias;
 
     public Postagem(LocalDate dataPostagem) {
         this.dataPostagem = dataPostagem;
@@ -17,6 +20,26 @@ public abstract class Postagem implements Moderavel {
 
     public Perfil getAutor() {
         return autor;
+    }
+
+    public void setAutor(Perfil autor) {
+        this.autor = autor;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public int getCurtidas() {
+        return curtidas;
+    }
+
+    public int getCompartilhamentos() {
+        return compartilhamentos;
+    }
+
+    public int getDenuncias() {
+        return denuncias;
     }
 
     public LocalDate getDataPostagem() {
@@ -30,12 +53,18 @@ public abstract class Postagem implements Moderavel {
     }
 
     @Override
-    public abstract void compartilhar();
+    public void compartilhar() {
+        compartilhamentos++;
+    }
 
     @Override
-    public abstract void curtir();
+    public void curtir() {
+        curtidas++;
+    }
 
     @Override
-    public abstract void denunciar();
+    public void denunciar() {
+        denuncias++;
+    }
     
 }

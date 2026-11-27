@@ -16,12 +16,13 @@ public class Configuracao {
         System.out.println("Você está no modo " + getModo());
 
         md = JOptionPane.showInputDialog("Digite 1 para modo Claro | 2 para o modo Escuro");
+        if (md == null) return;
         switch (md) {
             case ("1"):
                 System.out.println("Modo claro");
                 modo = "Claro";
                 break;
-            case (""):
+            case ("2"):
                 System.out.println("Modo Escuro");
                 modo = "Escuro";
                 break;

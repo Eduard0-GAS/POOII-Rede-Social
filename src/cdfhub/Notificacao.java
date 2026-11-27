@@ -6,6 +6,11 @@ public class Notificacao {
     private String texto;
     private LocalDateTime dataHora;
 
+    public Notificacao(String texto) {
+        this.texto = texto;
+        this.dataHora = LocalDateTime.now();
+    }
+
     public String getTexto() {
         return texto;
     }

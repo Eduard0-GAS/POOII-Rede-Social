@@ -28,4 +28,23 @@ public class Navegador {
     
     
     
+    public void navegar(String perfil) {
+        historico.push(perfilAtual);
+        perfilAtual = perfil;
+        avancar.clear();
+    }
+
+    public void voltar() {
+        if (!historico.isEmpty()) {
+            avancar.push(perfilAtual);
+            perfilAtual = historico.pop();
+        }
+    }
+
+    public void avancar() {
+        if (!avancar.isEmpty()) {
+            historico.push(perfilAtual);
+            perfilAtual = avancar.pop();
+        }
+    }
 }

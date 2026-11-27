@@ -33,6 +33,7 @@ public class Comentario {
     }
     
     public String editarTexto (String texto) {
-        return texto;
+        this.texto = texto;
+        return this.texto;
     }
 }

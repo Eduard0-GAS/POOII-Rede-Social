@@ -1,7 +1,8 @@
 
 package cdfhub;
 
-import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 
@@ -11,10 +12,10 @@ public class Perfil {
     private Configuracao configuracao;
     private Queue<Notificacao> notificacao;
 
-    Perfil (String apelido) {
+    public Perfil(String apelido) {
         this.apelido = apelido;
         this.configuracao = new Configuracao();
-        this.notificacao = new ArrayDeque();
+        this.notificacao = new LinkedList<>();
     }
     
     public void alterarConfiguracao () {
@@ -32,8 +33,8 @@ public class Perfil {
         return notificacao.poll();
     }
     
-    public void consultarQuantidadeNot (Notificacao n) {
-           notificacao.size();
+    public int consultarQuantidadeNot() {
+        return notificacao.size();
     }
 
     public String getApelido() {
@@ -53,4 +54,16 @@ public class Perfil {
         return "Perfil{" + "apelido=" + apelido + ", configuracao=" + configuracao + ", notificacao=" + notificacao + '}';
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Perfil outro = (Perfil) obj;
+        return Objects.equals(apelido, outro.apelido);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(apelido);
+    }
 }

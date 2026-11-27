@@ -2,6 +2,7 @@ package cdfhub;
 
 import java.util.HashMap;
 import java.util.Map;
+import exceptions.ApelidoJaExisteException;
 
 public class RedeSocial {
     
@@ -22,11 +23,10 @@ public class RedeSocial {
     }
     
     public void cadastrarPefil (Perfil p) throws ApelidoJaExisteException {
-        if (p.getApelido().equals(this.nome)) {
+        if (perfis.containsKey(p.getApelido())) {
             throw new ApelidoJaExisteException("esse apelido ja existe!");
         }
-        perfis.put(p.getApelido(), p)
-        ;
+        perfis.put(p.getApelido(), p);
     }
     
     public Perfil buscarPerfil (String apelido) {
@@ -34,7 +34,7 @@ public class RedeSocial {
     }
     
     public boolean existePerfil (Perfil p) {
-        return perfis.containsValue(p);
+        return perfis.containsKey(p.getApelido());
     }
     
 }

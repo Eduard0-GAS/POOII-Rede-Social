@@ -26,22 +26,8 @@ public class Foto extends Postagem {
 
     @Override
     public double calcularAlcance() {
-        return 0;
-    }
-
-    @Override
-    public void compartilhar() {
-
-    }
-
-    @Override
-    public void curtir() {
-
-    }
-
-    @Override
-    public void denunciar() {
-
+        return getCurtidas() * 3 + getCompartilhamentos() * 6
+                + getComentarios().size() * 3;
     }
 
 }
